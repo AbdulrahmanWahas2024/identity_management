@@ -139,9 +139,11 @@ app_license = "mit"
 
 # doc_events = {
 # 	"*": {
-# 		"on_update": "method",
+#		"on_update": "identity_management.id_card_system.services.card_request_service.update",
+# 		"on_cancel": "identity_management.id_card_system.services.card_request_service.cancel",
 # 		"on_cancel": "method",
-# 		"on_trash": "method"
+# 		"on_trash": "method",
+#     "validate": "identity_management.id_card_system.services.card_request_service.validate",
 # 	}
 # }
 
@@ -242,3 +244,35 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+
+    {
+        "dt": "Workflow",
+        "filters": [
+            [
+                "name",
+                "=",
+                "Employee Card Workflow"
+            ]
+        ]
+    },
+
+    {
+        "dt": "Role",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "HR Card Officer",
+                    "HR Card Manager",
+                    "IT Card Officer",
+                    "Card Print Officer",
+                    "Card Delivery Officer",
+                    "Identity Manager"
+                ]
+            ]
+        ]
+    }
+
+]

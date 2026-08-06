@@ -1,21 +1,58 @@
-# Copyright (c) 2026, Abdulrahman and contributors
-# For license information, please see license.txt
+# # Copyright (c) 2026, Abdulrahman and contributors
+# # For license information, please see license.txt
 
 # import frappe
+# from frappe.model.document import Document
+# from identity_management.id_card_system.services.card_request_service import CardRequestService
+
+# class CardRequest(Document):
+
+#     def validate(self):
+#         # يتم تشغيل التحقق دائماً قبل الحفظ
+#         CardRequestService(self).validate_request()
+
+#     def on_update(self):
+#         # يُفضل استخدام on_update أو on_submit بدلاً من on_update_after_submit
+#         # لضمان التقاط تغيير الـ workflow_state بشكل مضمون
+#         CardRequestService(self).process_workflow()
+# Copyright (c) 2026, Abdulrahman
+# For license information, please see license.txt
+
 import frappe
+
 from frappe.model.document import Document
 
 from identity_management.id_card_system.services.card_request_service import (
-    CardRequestService,
+    CardRequestService
 )
 
 
 class CardRequest(Document):
+    
+    def before_save(self):
+
+       service = CardRequestService(self)
+
+       service.validate_request()
+    
+
+    def validate(self):
+        """
+        يعمل عند حفظ الطلب.
+        يستخدم للتحقق قبل اعتماد الموارد البشرية.
+        """
+
+        service = CardRequestService(self)
+
+        service.validate_request()
+
+
 
     def on_update_after_submit(self):
+        """
+        يعمل بعد انتقال Workflow.
+        """
 
-        if self.workflow_state == "Card Preparation":
+        service = CardRequestService(self)
 
-            service = CardRequestService(self)
-
-            service.create_employee_identity_card()
+        service.process_workflow()

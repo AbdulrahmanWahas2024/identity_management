@@ -1,58 +1,23 @@
-# # Copyright (c) 2026, Abdulrahman and contributors
-# # For license information, please see license.txt
-
-# import frappe
-# from frappe.model.document import Document
-# from identity_management.id_card_system.services.card_request_service import CardRequestService
-
-# class CardRequest(Document):
-
-#     def validate(self):
-#         # يتم تشغيل التحقق دائماً قبل الحفظ
-#         CardRequestService(self).validate_request()
-
-#     def on_update(self):
-#         # يُفضل استخدام on_update أو on_submit بدلاً من on_update_after_submit
-#         # لضمان التقاط تغيير الـ workflow_state بشكل مضمون
-#         CardRequestService(self).process_workflow()
 # Copyright (c) 2026, Abdulrahman
-# For license information, please see license.txt
-
-import frappe
-
 from frappe.model.document import Document
 
-from identity_management.id_card_system.services.card_request_service import (
-    CardRequestService
+from identity_management.id_card_system.services.tracking_service import TrackingService
+from identity_management.id_card_system.services.validation_service import (
+    ValidationService,
 )
+from identity_management.id_card_system.services.workflow_service import WorkflowService
 
 
 class CardRequest(Document):
-    
-    def before_save(self):
 
-       service = CardRequestService(self)
-
-       service.validate_request()
-    
-
+    # التحقق قبل الحفظ
     def validate(self):
-        """
-        يعمل عند حفظ الطلب.
-        يستخدم للتحقق قبل اعتماد الموارد البشرية.
-        """
+        ValidationService(self).validate_request()
 
-        service = CardRequestService(self)
+    # أول إنشاء للطلب (Draft)
+    def after_insert(self):
+        TrackingService(self).add_track(workflow_state="Draft", action="إنشاء الطلب")
 
-        service.validate_request()
-
-
-
+    # أي انتقال Workflow بعد الـ Submit
     def on_update_after_submit(self):
-        """
-        يعمل بعد انتقال Workflow.
-        """
-
-        service = CardRequestService(self)
-
-        service.process_workflow()
+        WorkflowService(self).process_workflow()

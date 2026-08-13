@@ -139,7 +139,7 @@ app_license = "mit"
 
 # doc_events = {
 # 	"*": {
-#		"on_update": "identity_management.id_card_system.services.card_request_service.update",
+# 		"on_update": "identity_management.id_card_system.services.card_request_service.update",
 # 		"on_cancel": "identity_management.id_card_system.services.card_request_service.cancel",
 # 		"on_cancel": "method",
 # 		"on_trash": "method",
@@ -245,18 +245,7 @@ app_license = "mit"
 # }
 
 fixtures = [
-
-    {
-        "dt": "Workflow",
-        "filters": [
-            [
-                "name",
-                "=",
-                "Employee Card Workflow"
-            ]
-        ]
-    },
-
+    {"dt": "Workflow", "filters": [["name", "=", "Employee Card Workflow"]]},
     {
         "dt": "Role",
         "filters": [
@@ -269,10 +258,14 @@ fixtures = [
                     "IT Card Officer",
                     "Card Print Officer",
                     "Card Delivery Officer",
-                    "Identity Manager"
-                ]
+                    "Identity Manager",
+                ],
             ]
-        ]
-    }
-
+        ],
+    },
 ]
+doc_events = {
+    "Card Request": {
+        "on_update": "identity_management.id_card_system.services.workflow_tracking.handle_workflow"
+    }
+}

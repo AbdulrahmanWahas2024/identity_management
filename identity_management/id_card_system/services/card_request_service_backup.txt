@@ -1,0 +1,422 @@
+import frappe
+from frappe import _
+#====================================================
+# استدعاء الاجراءات الخاصة بطلب بطاقة الموظف
+#====================================================
+from frappe.utils import now_datetime
+
+class CardRequestService:
+
+
+    def __init__(self, doc):
+
+        self.doc = doc
+
+
+
+    # =====================================================
+    # التحقق قبل حفظ طلب الإصدار
+    # =====================================================
+
+    def validate_request(self):
+
+        self.load_employee_data()
+
+        self.validate_employee()
+
+        self.validate_employment_type()
+
+        self.validate_existing_card()
+
+
+
+    # =====================================================
+    # جلب بيانات الموظف
+    # =====================================================
+
+    def load_employee_data(self):
+
+        if not self.doc.employee:
+            return
+
+
+        employee = frappe.get_doc(
+            "Employee",
+            self.doc.employee
+        )
+
+
+        self.doc.employee_name = employee.employee_name
+
+        self.doc.employee_number = employee.employee_number
+
+        self.doc.company = employee.company
+
+        self.doc.designation = employee.designation
+
+        self.doc.department = employee.department
+
+        self.doc.branch = employee.branch
+
+        self.doc.employment_type = employee.employment_type
+
+
+
+    # =====================================================
+    # التحقق من اختيار الموظف
+    # =====================================================
+
+    def validate_employee(self):
+
+        if not self.doc.employee:
+
+            frappe.throw(
+                _("يجب اختيار الموظف قبل حفظ الطلب.")
+            )
+
+
+
+    # =====================================================
+    # التحقق من نوع الموظف
+    # Employee -> Employment Type
+    # =====================================================
+
+    def validate_employment_type(self):
+
+
+        blocked_types = [
+
+            "متقاعد"
+
+        ]
+
+
+        if self.doc.employment_type in blocked_types:
+
+
+            frappe.throw(
+                f"""
+لا يمكن إصدار بطاقة لهذا الموظف.
+
+نوع الموظف:
+{self.doc.employment_type}
+"""
+            )
+
+
+
+    # =====================================================
+    # التحقق من وجود بطاقة سابقة
+    # =====================================================
+
+    def validate_existing_card(self):
+
+
+        cards = frappe.get_all(
+
+            "Employee Identity Card",
+
+            filters={
+
+                "employee": self.doc.employee
+
+            },
+
+            fields=[
+
+                "name",
+
+                "card_number",
+
+                "card_status",
+
+                "expiry_date"
+
+            ],
+
+            order_by="creation desc"
+
+        )
+
+
+        if not cards:
+
+            return
+
+
+
+        active_status = [
+
+            "جديدة",
+
+            "بانتظار تقنية المعلومات",
+
+            "قيد التجهيز",
+
+            "جاهزة للطباعة",
+
+            "تمت الطباعة",
+
+            "تم التسليم",
+
+            "نشطة",
+
+            "موقفة"
+
+        ]
+
+
+
+        for card in cards:
+
+
+            if card.card_status in active_status:
+
+
+#                 frappe.throw(
+# f"""
+# ⚠️ لا يمكن إصدار بطاقة جديدة
+
+# الموظف:
+# {self.doc.employee_name}
+
+# الرقم الوظيفي:
+# {self.doc.employee_number}
+
+# لديه بطاقة حالية:
+
+# رقم البطاقة:
+# {card.card_number}
+
+# الحالة:
+# {card.card_status}
+
+# يرجى إلغاء البطاقة السابقة أو إنهاء صلاحيتها قبل إصدار بطاقة جديدة.
+# """
+# )
+               frappe.throw(
+    f"""
+    <b>الموظف:</b> {self.doc.employee_name} ({self.doc.employee_number})<br>
+    لديه بطاقة حالية برقم: <b>{card.card_number}</b> (الحالة: <b>{card.card_status}</b>).<br><br>
+    <span style="color: #d9534f;">يرجى إلغاء أو إنهاء صلاحية البطاقة السابقة قبل إصدار بطاقة جديدة.</span>
+    """,
+    title="⚠️ لا يمكن إصدار بطاقة جديدة"
+)
+
+    # =====================================================
+    # تشغيل Workflow
+    # =====================================================
+
+    def process_workflow(self):
+
+
+        # state = self.doc.workflow_state
+
+        # if state == "Card Preparation":
+
+        #     self.create_identity_card()  # استدعاء دالة انشاء بطاقة الموظف
+
+        # elif state == "Ready for Print":
+
+        #     self.update_card_status(
+        #         "جاهزة للطباعة"
+        #     )
+
+        # elif state == "Printed":
+
+        #     self.update_card_status(
+        #         "تمت الطباعة"
+        #     )
+
+        # elif state == "Delivered":
+
+        #     self.update_card_status(
+        #         "تم التسليم"
+        #     )
+        # elif state == "Completed":
+
+        #     self.update_card_status(
+        #         "نشطة"
+        #     )
+
+         #  استدعاء دالة تسجيل حركة سير العمل
+        self.add_workflow_track()
+
+        # تنفيذ إجراءات كل مرحلة
+        if self.doc.workflow_state == "Card Preparation":
+           self.process_it_acceptance()
+
+        elif self.doc.workflow_state == "Ready for Print":
+             self.update_card_status("جاهزة للطباعة")
+
+        elif self.doc.workflow_state == "Printed":
+             self.update_card_status("تمت الطباعة")
+ 
+        elif self.doc.workflow_state == "Delivered":
+             self.update_card_status("تم التسليم")
+
+        elif self.doc.workflow_state == "Completed":
+             self.update_card_status("نشطة")
+             #============================================
+             # إضافة أي إجراءات إضافية عند اكتمال الطلب
+             #============================================
+    def update_card_status(self, status):
+
+       if not self.doc.employee_identity_card:
+        return
+
+       card = frappe.get_doc(
+        "Employee Identity Card",
+         self.doc.employee_identity_card
+    ) 
+
+       card.card_status = status
+
+       card.save(ignore_permissions=True)
+
+
+    # =====================================================
+    # إنشاء بطاقة الموظف
+    # =====================================================
+
+    def create_identity_card(self):
+
+
+        # منع التكرار
+
+        if self.doc.employee_identity_card:
+
+            return
+
+
+
+        card = frappe.new_doc(
+            "Employee Identity Card"
+        )
+
+
+
+        card.card_request = self.doc.name
+
+
+        card.employee = self.doc.employee
+
+
+        card.employee_number = self.doc.employee_number
+
+
+
+        card.card_type = frappe.db.get_value(
+
+            "Card Type",
+
+            {
+
+                "is_default":1
+
+            },
+
+            "name"
+
+        )
+
+
+
+        if not card.card_type:
+
+            frappe.throw(
+                "لم يتم تعريف نوع بطاقة افتراضي."
+            )
+
+
+
+        card.card_status = "بانتظار تقنية المعلومات"
+
+
+
+        card.card_number = frappe.model.naming.make_autoname(
+
+            "EMP-ID-.YY.-.#####"
+
+        )
+
+
+
+        card.issuing_office = self.doc.branch
+
+
+
+        card.insert(
+
+            ignore_permissions=True
+
+        )
+
+
+
+        self.doc.db_set(
+
+            "employee_identity_card",
+
+            card.name
+
+        )
+
+
+
+        frappe.msgprint(
+
+            f"""
+
+تم إنشاء بطاقة الموظف بنجاح.
+
+رقم البطاقة:
+{card.card_number}
+
+"""
+
+        )
+
+
+
+    # =====================================================
+    # تحديث حالة البطاقة
+    # =====================================================
+
+    def update_card_status(self, status):
+
+
+        if not self.doc.employee_identity_card:
+
+            return
+
+
+
+        frappe.db.set_value(
+
+            "Employee Identity Card",
+
+            self.doc.employee_identity_card,
+
+            "card_status",
+
+            status
+
+        )
+    def add_workflow_track(self):
+
+    # لا تضيف سجل مكرر لنفس الحالة
+    if self.doc.workflow_track:
+
+        last_row = self.doc.workflow_track[-1]
+
+        if last_row.workflow_state == self.doc.workflow_state:
+            return
+
+    self.doc.append("workflow_track", {
+        "workflow_state": self.doc.workflow_state,
+        "action": self.doc.workflow_state,
+        "action_user": frappe.session.user,
+        "action_date": now_datetime(),
+        "remarks": ""
+    })

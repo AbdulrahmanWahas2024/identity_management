@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"\u0627\u0644\u062a\u0642\u0627\u0631\u064a\u0631 \u0648\u0627\u0644\u0625\u062d\u0635\u0627\u0626\u064a\u0627\u062a\"}}]",
+ "content": "[{\"id\":\"plscrsdIRp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">\u0627\u0644\u062a\u0642\u0627\u0631\u064a\u0631 \u0648\u0627\u0644\u0625\u062d\u0635\u0627\u0626\u064a\u0627\u062a</span>\",\"col\":12}},{\"id\":\"IzSzAS14HN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u062a\u0642\u0631\u064a\u0631 \u0637\u0644\u0628\u0627\u062a \u0625\u0635\u062f\u0627\u0631 \u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062a\",\"col\":3}}]",
  "creation": "2026-07-26 03:24:48.994314",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "\u0627\u0644\u062a\u0642\u0627\u0631\u064a\u0631 \u0648\u0627\u0644\u0625\u062d\u0635\u0627\u0626\u064a\u0627\u062a",
  "links": [],
- "modified": "2026-07-26 03:27:49.151338",
+ "modified": "2026-08-14 01:02:45.000786",
  "modified_by": "Administrator",
  "module": "ID_Card_System",
  "name": "\u0627\u0644\u062a\u0642\u0627\u0631\u064a\u0631 \u0648\u0627\u0644\u0625\u062d\u0635\u0627\u0626\u064a\u0627\u062a",
@@ -24,6 +24,15 @@
  "quick_lists": [],
  "roles": [],
  "sequence_id": 35.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "\u062a\u0642\u0631\u064a\u0631 \u0637\u0644\u0628\u0627\u062a \u0625\u0635\u062f\u0627\u0631 \u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062a",
+   "link_to": "\u062a\u0642\u0631\u064a\u0631 \u0637\u0644\u0628\u0627\u062a \u0625\u0635\u062f\u0627\u0631 \u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062a",
+   "report_ref_doctype": "Card Request",
+   "type": "Report"
+  }
+ ],
  "title": "\u0627\u0644\u062a\u0642\u0627\u0631\u064a\u0631 \u0648\u0627\u0644\u0625\u062d\u0635\u0627\u0626\u064a\u0627\u062a"
 }

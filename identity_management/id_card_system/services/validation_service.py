@@ -290,7 +290,7 @@ class ValidationService:
         # وإذا لم توجد:
         # يستطيع مختص تقنية المعلومات رفعها لاحقاً
 
-        if employee.image:
+        if employee.image and not self.doc.employee_photo:
             self.doc.employee_photo = employee.image
 
     # =====================================================

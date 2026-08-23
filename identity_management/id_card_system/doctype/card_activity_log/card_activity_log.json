@@ -27,7 +27,7 @@
    "fieldname": "naming_series",
    "fieldtype": "Data",
    "label": "Naming Series",
-   "options": "CAL-.YYYY.-.#####"
+   "options": "CAL-.YY.-.####"
   },
   {
    "fieldname": "activity_information",
@@ -95,7 +95,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-19 00:27:26.007379",
+ "modified": "2026-08-22 19:01:45.672456",
  "modified_by": "Administrator",
  "module": "ID_Card_System",
  "name": "Card Activity Log",

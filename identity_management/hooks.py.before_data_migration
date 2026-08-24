@@ -245,20 +245,24 @@ app_license = "mit"
 # }
 
 fixtures = [
-    # 1. نقل الحقول المخصصة التي أضيفت على الموظفين أو النماذج الأخرى
-    "Custom Field",
-    # 2. نقل التعديلات على خصائص الواجهات والحقول
-    "Property Setter",
-    # 3. نقل تصاميم وأشكال طباعة البطائق المخصصة للتطبيق
-    {"dt": "Print Format", "filters": [["module", "=", "Identity Management"]]},
-    # 4. نقل سكريبتات العميل الخاصة بنظام البطائق
-    {"dt": "Client Script", "filters": [["module", "=", "Identity Management"]]},
-    # 5. نقل دورت وسير عمل إصدار البطاقات والتحقق
-    "Workflow",
-    "Workflow State",
-    "Workflow Action Master",
-    # 6. نقل السكريبتات البرمجية التي كتبت من الواجهة (إن وجدت)
-    {"dt": "Server Script", "filters": [["module", "=", "Identity Management"]]},
+    {"dt": "Workflow", "filters": [["name", "=", "Employee Card Workflow"]]},
+    {
+        "dt": "Role",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "HR Card Officer",
+                    "HR Card Manager",
+                    "IT Card Officer",
+                    "Card Print Officer",
+                    "Card Delivery Officer",
+                    "Identity Manager",
+                ],
+            ]
+        ],
+    },
 ]
 doc_events = {
     "Card Request": {

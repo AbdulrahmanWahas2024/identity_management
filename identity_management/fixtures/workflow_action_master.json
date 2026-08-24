@@ -1,0 +1,184 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-05-26 05:10:27.071066",
+  "name": "Approve",
+  "workflow_action_name": "Approve"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-05-26 05:10:27.073082",
+  "name": "Reject",
+  "workflow_action_name": "Reject"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-05-26 05:10:27.075010",
+  "name": "Review",
+  "workflow_action_name": "Review"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-05-28 23:26:57.349481",
+  "name": "توصيل",
+  "workflow_action_name": "توصيل"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-07-10 01:19:09.161268",
+  "name": "تم دفع كامل المبلغ",
+  "workflow_action_name": "تم دفع كامل المبلغ"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-07-10 01:20:03.759351",
+  "name": "تم تسليم التأمين",
+  "workflow_action_name": "تم تسليم التأمين"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-21 22:17:18.400097",
+  "name": "إرسال",
+  "workflow_action_name": "إرسال"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-21 22:25:13.543861",
+  "name": "اعتماد",
+  "workflow_action_name": "اعتماد"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-21 22:26:50.526649",
+  "name": "رفض الطلب",
+  "workflow_action_name": "رفض الطلب"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-21 22:28:45.614355",
+  "name": "احالة الى تقنية المعلومات",
+  "workflow_action_name": "احالة الى تقنية المعلومات"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-21 22:32:27.344783",
+  "name": "استلام الطلب",
+  "workflow_action_name": "استلام الطلب"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-22 00:19:17.162482",
+  "name": "إعادة الطلب للموارد البشرية",
+  "workflow_action_name": "إعادة الطلب للموارد البشرية"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-22 00:22:13.914096",
+  "name": "اعتماد التجهيز",
+  "workflow_action_name": "اعتماد التجهيز"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-22 00:23:27.311465",
+  "name": "طباعة البطاقة",
+  "workflow_action_name": "طباعة البطاقة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-22 00:25:28.734685",
+  "name": "تسليم البطاقة",
+  "workflow_action_name": "تسليم البطاقة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-22 01:14:44.003290",
+  "name": "اكمال الطلب",
+  "workflow_action_name": "اكمال الطلب"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-22 01:16:15.828150",
+  "name": "جاهزة للطباعة",
+  "workflow_action_name": "جاهزة للطباعة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-22 01:18:04.528655",
+  "name": "تجهيز البطاقة",
+  "workflow_action_name": "تجهيز البطاقة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-07-22 01:59:16.115988",
+  "name": "ارسال",
+  "workflow_action_name": "ارسال"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2026-08-15 23:18:25.442519",
+  "name": "بدء بالتحقق",
+  "workflow_action_name": "بدء بالتحقق"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-05-28 23:12:24.826849",
+  "name": "استلام الاثاث",
+  "workflow_action_name": "استلام الاثاث"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-05-28 23:12:41.824875",
+  "name": "توريد مخزني",
+  "workflow_action_name": "توريد مخزني"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-07-10 01:30:19.308417",
+  "name": "تاكيد الحجز",
+  "workflow_action_name": "تاكيد الحجز"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-07-10 01:30:29.174813",
+  "name": "انهاء الحجز",
+  "workflow_action_name": "انهاء الحجز"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-07-10 01:49:33.341131",
+  "name": "حفظ",
+  "workflow_action_name": "حفظ"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-07-10 02:51:55.720667",
+  "name": "حفظ كحجز مبدئي",
+  "workflow_action_name": "حفظ كحجز مبدئي"
+ }
+]

@@ -1,0 +1,290 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "question-sign",
+  "modified": "2025-05-26 05:10:27.035244",
+  "name": "Pending",
+  "style": "",
+  "workflow_state_name": "Pending"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "ok-sign",
+  "modified": "2025-05-26 05:10:27.038618",
+  "name": "Approved",
+  "style": "Success",
+  "workflow_state_name": "Approved"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "remove",
+  "modified": "2025-05-26 05:10:27.042322",
+  "name": "Rejected",
+  "style": "Danger",
+  "workflow_state_name": "Rejected"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-07-10 03:11:37.482354",
+  "name": "منتهي",
+  "style": "Danger",
+  "workflow_state_name": "منتهي"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 02:01:47.625196",
+  "name": "Draft",
+  "style": "Success",
+  "workflow_state_name": "Draft"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 02:02:09.954938",
+  "name": "HR Review",
+  "style": "",
+  "workflow_state_name": "HR Review"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 02:03:16.737111",
+  "name": "HR Approved",
+  "style": "Success",
+  "workflow_state_name": "HR Approved"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 02:04:14.063529",
+  "name": "IT Processing",
+  "style": "Info",
+  "workflow_state_name": "IT Processing"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 02:05:17.143868",
+  "name": "Ready for Print",
+  "style": "Success",
+  "workflow_state_name": "Ready for Print"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 02:05:50.790480",
+  "name": "Printed",
+  "style": "Success",
+  "workflow_state_name": "Printed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 02:06:31.979317",
+  "name": "Delivered",
+  "style": "Success",
+  "workflow_state_name": "Delivered"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 02:07:54.813157",
+  "name": "Cancelled",
+  "style": "Warning",
+  "workflow_state_name": "Cancelled"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 21:19:32.429276",
+  "name": "Submitted",
+  "style": "Success",
+  "workflow_state_name": "Submitted"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 21:20:20.364064",
+  "name": "IT Pending",
+  "style": "",
+  "workflow_state_name": "IT Pending"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 21:24:21.941078",
+  "name": "Card Preparation",
+  "style": "Info",
+  "workflow_state_name": "Card Preparation"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-21 21:25:47.801408",
+  "name": "Completed",
+  "style": "Success",
+  "workflow_state_name": "Completed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:20:33.680002",
+  "name": "مستلمة",
+  "style": "Primary",
+  "workflow_state_name": "مستلمة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:21:25.127711",
+  "name": "بانتظار الاستلام البطاقة",
+  "style": "",
+  "workflow_state_name": "بانتظار الاستلام البطاقة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:21:40.293866",
+  "name": "قيد التحقق",
+  "style": "",
+  "workflow_state_name": "قيد التحقق"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:22:00.685623",
+  "name": "قيد التجهيز",
+  "style": "",
+  "workflow_state_name": "قيد التجهيز"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:22:14.950451",
+  "name": "جاهزة للطباعة",
+  "style": "",
+  "workflow_state_name": "جاهزة للطباعة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:22:47.592128",
+  "name": "مطبوعة",
+  "style": "",
+  "workflow_state_name": "مطبوعة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:23:52.413970",
+  "name": "تم التسليم",
+  "style": "",
+  "workflow_state_name": "تم التسليم"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:24:31.221261",
+  "name": "مكتملة",
+  "style": "",
+  "workflow_state_name": "مكتملة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:24:56.633673",
+  "name": "مرفوضة",
+  "style": "",
+  "workflow_state_name": "مرفوضة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-08-15 22:25:27.579870",
+  "name": "ملغاة",
+  "style": "",
+  "workflow_state_name": "ملغاة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-07-10 03:13:27.139589",
+  "name": "مسودة",
+  "style": "",
+  "workflow_state_name": "مسودة"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-07-10 03:11:29.551207",
+  "name": "مؤكد",
+  "style": "Success",
+  "workflow_state_name": "مؤكد"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-05-28 23:08:34.030396",
+  "name": "عند العميل",
+  "style": "",
+  "workflow_state_name": "عند العميل"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-05-28 23:10:00.421822",
+  "name": "في المستودع",
+  "style": "",
+  "workflow_state_name": "في المستودع"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-05-28 23:09:35.825673",
+  "name": "تم التوصيل",
+  "style": "",
+  "workflow_state_name": "تم التوصيل"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-07-10 03:13:13.604193",
+  "name": "محجوز",
+  "style": "Primary",
+  "workflow_state_name": "محجوز"
+ }
+]

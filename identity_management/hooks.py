@@ -286,17 +286,18 @@ MODULES = ["ID_Card_System", "ID Card System", "Identity Management"]
 # -----------------------------------------------------------
 # Fixtures (تصدير التعديلات والتصاميم وتصاريح النظام تلقائياً)
 # -----------------------------------------------------------
+
 fixtures = [
-    # 1. نقل الـ DocTypes المخصصة المنشأة من الواجهة
-    "DocType",
-    # 2. التعديلات الهيكلية والحقول المخصصة
-    "Custom Field",
-    "Property Setter",
+    # 1. نقل الـ DocTypes المخصصة لنظام البطائق فقط
+    {"dt": "DocType", "filters": [["custom", "=", 1], ["module", "in", MODULES]]},
+    # 2. نقل الحقول المخصصة المرتبطة بنظام البطائق والموظفين
+    {"dt": "Custom Field", "filters": [["module", "in", MODULES]]},
+    {"dt": "Property Setter", "filters": [["module", "in", MODULES]]},
     # 3. دورات وسير العمل (Workflows)
     "Workflow",
     "Workflow State",
     "Workflow Action Master",
-    # 4. باقي الخدمات والتصاميم
+    # 4. خدمات وتصاميم البطائق والتقارير والسكريبتات
     {"dt": "Print Format", "filters": [["module", "in", MODULES]]},
     {"dt": "Client Script", "filters": [["module", "in", MODULES]]},
     {"dt": "Server Script", "filters": [["module", "in", MODULES]]},
@@ -309,7 +310,6 @@ fixtures = [
     },
     "Custom DocPerm",
 ]
-
 # -----------------------------------------------------------
 # Document Events (أحداث المستندات المحددة فقط)
 # -----------------------------------------------------------

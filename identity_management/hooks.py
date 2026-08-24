@@ -287,19 +287,20 @@ MODULES = ["ID_Card_System", "ID Card System", "Identity Management"]
 # Fixtures (تصدير التعديلات والتصاميم وتصاريح النظام تلقائياً)
 # -----------------------------------------------------------
 fixtures = [
-    # 1. التعديلات الهيكلية والحقول المخصصة لجميع المستندات
+    # 1. نقل الـ DocTypes المخصصة المنشأة من الواجهة
+    "DocType",
+    # 2. التعديلات الهيكلية والحقول المخصصة
     "Custom Field",
     "Property Setter",
-    # 2. دورات وسير العمل (Workflows)
+    # 3. دورات وسير العمل (Workflows)
     "Workflow",
     "Workflow State",
     "Workflow Action Master",
-    # 3. خدمات وتصاميم البطائق والتقارير والسكريبتات
+    # 4. باقي الخدمات والتصاميم
     {"dt": "Print Format", "filters": [["module", "in", MODULES]]},
     {"dt": "Client Script", "filters": [["module", "in", MODULES]]},
     {"dt": "Server Script", "filters": [["module", "in", MODULES]]},
     {"dt": "Report", "filters": [["module", "in", MODULES]]},
-    # 4. الأدوار والصلاحيات المخصصة
     {
         "dt": "Role",
         "filters": [

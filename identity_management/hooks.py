@@ -4,6 +4,8 @@ app_publisher = "Abdulrahman"
 app_description = "ID for Staff"
 app_email = "al.wahaas2200@gmail.com"
 app_license = "mit"
+# قائمة الموديولات المعنية لتجميع التصدير الآلي
+MODULES = ["ID_Card_System", "ID Card System", "Identity Management"]
 
 # Apps
 # ------------------
@@ -245,20 +247,26 @@ app_license = "mit"
 # }
 
 fixtures = [
-    # 1. نقل الحقول المخصصة التي أضيفت على الموظفين أو النماذج الأخرى
+    # 1. التعديلات الهيكلية والحقول المخصصة
     "Custom Field",
-    # 2. نقل التعديلات على خصائص الواجهات والحقول
     "Property Setter",
-    # 3. نقل تصاميم وأشكال طباعة البطائق المخصصة للتطبيق
-    {"dt": "Print Format", "filters": [["module", "=", "Identity Management"]]},
-    # 4. نقل سكريبتات العميل الخاصة بنظام البطائق
-    {"dt": "Client Script", "filters": [["module", "=", "Identity Management"]]},
-    # 5. نقل دورت وسير عمل إصدار البطاقات والتحقق
+    # 2. دورات وسير العمل بالتفصيل (Workflows)
     "Workflow",
     "Workflow State",
     "Workflow Action Master",
-    # 6. نقل السكريبتات البرمجية التي كتبت من الواجهة (إن وجدت)
-    {"dt": "Server Script", "filters": [["module", "=", "Identity Management"]]},
+    # 3. خدمات وتصاميم البطائق والتقارير
+    {"dt": "Print Format", "filters": [["module", "in", MODULES]]},
+    {"dt": "Client Script", "filters": [["module", "in", MODULES]]},
+    {"dt": "Server Script", "filters": [["module", "in", MODULES]]},
+    {"dt": "Report", "filters": [["module", "in", MODULES]]},
+    # 4. الأدوار والصلاحيات المخصصة للنظام (Roles & Permissions)
+    {
+        "dt": "Role",
+        "filters": [
+            ["name", "in", ["Card Issuer", "Card Approver", "Identity Manager"]]
+        ],
+    },
+    "Custom DocPerm",
 ]
 doc_events = {
     "Card Request": {

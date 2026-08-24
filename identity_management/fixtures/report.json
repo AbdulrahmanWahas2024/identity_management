@@ -1,0 +1,137 @@
+[
+ {
+  "add_total_row": 0,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [
+   {
+    "default": "Today",
+    "fieldname": "from_date",
+    "fieldtype": "Date",
+    "label": "من تاريخ",
+    "mandatory": 1,
+    "options": "",
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "filters",
+    "parenttype": "Report",
+    "wildcard_filter": 0
+   },
+   {
+    "default": "Today",
+    "fieldname": "to_date",
+    "fieldtype": "Date",
+    "label": "إلى تاريخ",
+    "mandatory": 1,
+    "options": "",
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "filters",
+    "parenttype": "Report",
+    "wildcard_filter": 0
+   },
+   {
+    "default": "",
+    "fieldname": "branch",
+    "fieldtype": "Link",
+    "label": "الفرع",
+    "mandatory": 0,
+    "options": "Branch",
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "filters",
+    "parenttype": "Report",
+    "wildcard_filter": 0
+   },
+   {
+    "default": "\n",
+    "fieldname": "department",
+    "fieldtype": "Link",
+    "label": "الدائرة",
+    "mandatory": 0,
+    "options": "Department",
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "filters",
+    "parenttype": "Report",
+    "wildcard_filter": 0
+   },
+   {
+    "default": "\n",
+    "fieldname": "workflow_state",
+    "fieldtype": "Select",
+    "label": "الحالة",
+    "mandatory": 0,
+    "options": "Draft\nHR Review\nHR Approved\nIT Pending\nCard Preparation\nReady for Print\nPrinted\nDelivered\nCompleted\nRejected\nCancelled",
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "filters",
+    "parenttype": "Report",
+    "wildcard_filter": 0
+   }
+  ],
+  "is_standard": "No",
+  "javascript": null,
+  "json": "frappe.query_reports[\"تقرير طلبات إصدار البطاقات\"] = {\r\n\r\n    onload: function(report) {\r\n\r\n        report.page.wrapper.css({\r\n            \"direction\": \"rtl\"\r\n        });\r\n\r\n    }\r\n\r\n};",
+  "letter_head": null,
+  "modified": "2026-08-14 04:05:49.420930",
+  "module": "ID_Card_System",
+  "name": "تقرير طلبات إصدار البطاقات",
+  "prepared_report": 0,
+  "query": "SELECT\r\n    cr.name AS \"رقم الطلب:Link/Card Request:150\",\r\n    cr.employee_name AS \"اسم الموظف:Data:220\",\r\n    cr.employee_number AS \"الرقم الوظيفي:Data:120\",\r\n    cr.request_date AS \"تاريخ الطلب:Date:120\",\r\n    cr.request_type AS \"نوع الطلب:Link/Card Request Type:150\",\r\n    cr.request_source AS \"جهة الطلب:Data:150\",\r\n    cr.department AS \"الدائرة:Link/Department:180\",\r\n    cr.branch AS \"الفرع:Link/Branch:180\",\r\n    cr.workflow_state AS \"حالة الطلب:Data:160\"\r\n\r\nFROM `tabCard Request` cr\r\n\r\nWHERE\r\n    cr.request_date BETWEEN %(from_date)s AND %(to_date)s\r\n\r\nORDER BY\r\n    cr.request_date DESC,\r\n    cr.creation DESC",
+  "ref_doctype": "Card Request",
+  "reference_report": null,
+  "report_name": "تقرير طلبات إصدار البطاقات",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "HR Card Officer"
+   },
+   {
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "HR Card Manager"
+   },
+   {
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "IT Card Officer"
+   },
+   {
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Identity Manager"
+   },
+   {
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "HR User"
+   },
+   {
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Branch HR Officer"
+   },
+   {
+    "parent": "تقرير طلبات إصدار البطاقات",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Employee"
+   }
+  ],
+  "timeout": 0
+ }
+]

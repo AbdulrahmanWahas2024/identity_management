@@ -28,6 +28,7 @@
   "company",
   "employee_photo",
   "photo_status",
+  "appointment_promotion_decision",
   "employment_type",
   "\u0628\u064a\u0627\u0646\u0627\u062a_\u0627\u0644\u0637\u0644\u0628_\u0648\u0627\u0644\u062a\u0648\u062c\u064a\u0647_section",
   "column_break_pzqd",
@@ -42,7 +43,8 @@
   "workflow_track",
   "received_by",
   "received_on",
-  "request_type_name"
+  "request_type_name",
+  "barcode_svg"
  ],
  "fields": [
   {
@@ -273,13 +275,24 @@
    "fieldtype": "Select",
    "label": "\u062d\u0627\u0644\u0629 \u0627\u0644\u0635\u0648\u0631\u0629",
    "options": "\u0644\u0645 \u064a\u062a\u0645 \u0627\u0644\u0631\u0641\u0639\n\u0642\u064a\u062f \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0629\n\u0645\u0639\u062a\u0645\u062f\u0629\n\u0645\u0631\u0641\u0648\u0636\u0629\n\u0645\u0637\u0644\u0648\u0628\u0629"
+  },
+  {
+   "fieldname": "barcode_svg",
+   "fieldtype": "Text",
+   "hidden": 1,
+   "label": "\u0627\u0644\u0628\u0627\u0631\u0643\u0648\u062f"
+  },
+  {
+   "fieldname": "appointment_promotion_decision",
+   "fieldtype": "Attach",
+   "label": "\u0642\u0631\u0627\u0631 \u0627\u0644\u062a\u0639\u064a\u064a\u0646 / \u0627\u0644\u062a\u0631\u0642\u064a\u0629"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-08-24 00:34:14.872083",
+ "modified": "2026-08-29 06:17:28.671144",
  "modified_by": "Administrator",
  "module": "ID_Card_System",
  "name": "Card Request",
